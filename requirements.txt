@@ -1,0 +1,3 @@
+openai
+requests         # if you call the REST API directly
+streamlit        # optional – pin a version if you need one
