@@ -12,13 +12,6 @@ from functools import lru_cache
 
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
-# -----------------------------------------------------------------------------
-# ⚠️  API KEYS ARE NOW USER‑PROVIDED AT RUN‑TIME VIA STREAMLIT SIDEBAR INPUTS ⚠️
-# -----------------------------------------------------------------------------
-# Leave the placeholders empty – they will be overwritten after the user enters
-# her keys in the sidebar.  All functions reference these globals at call‑time,
-# so updating them in `main()` is sufficient.
-
 AMAP_KEY = ""  # will be filled by st.sidebar.text_input
 DYNAMIC_ROUTE_URL = "https://restapi.amap.com/v5/direction/driving?parameters"
 STATIC_MAP_URL   = "https://restapi.amap.com/v3/staticmap"
@@ -26,12 +19,6 @@ GEOCODE_URL      = "https://restapi.amap.com/v3/geocode/geo"
 
 OPENAI_MODEL = "gpt-4o"
 client = openai  # keep the alias used throughout the code
-# openai.api_key will be set after the user supplies it in the sidebar
-
-# ─────────────────────────────────────────────────────────────────────────────
-# Utility functions that depend on the *current* value of AMAP_KEY. Because the
-# key is looked up at call‑time, changing the global later is fine.
-# ─────────────────────────────────────────────────────────────────────────────
 
 @lru_cache(maxsize=256)
 def reverse_geocode_amap(lng: float, lat: float) -> str:
