@@ -893,7 +893,7 @@ Return **ONLY** valid JSON exactly like:
 
 def main():
     st.set_page_config(page_title="Adversarial Single‑Route Demo", layout="wide")
-    st.title("Adversarial Plan (Only First Route) with Attack Points")
+    st.title("Adversarial Plan with Attack Points")
 
     # ── 1. Collect API keys from the user ────────────────────────────────────
     st.sidebar.header("🔑 API Keys")
